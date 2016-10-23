@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LTEGamer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="xmlAppList" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="downloadSpeed" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="downloadFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.speedtestx.de/testfiles/data_5gb.test</Value>
+    </Setting>
+    <Setting Name="pingInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="pingAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">213.94.72.88</Value>
+    </Setting>
+    <Setting Name="activeWorkaround" Type="System.String" Scope="User">
+      <Value Profile="(Default)">pingflooder</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
