@@ -67,7 +67,9 @@ namespace LTEGamer
             refreshAppList();
             refreshProcessChecker();
 
-            MessageHandler.Invoke("Programm fertig geladen.", MessageType.STATUS);
+            if (Properties.Settings.Default.startMinimized) Visible = false;
+
+            MessageHandler.Invoke("Bereit.", MessageType.STATUS);
 
         }
 
@@ -264,6 +266,7 @@ namespace LTEGamer
             settingsDialog.trackBarPingInterval.Value = Properties.Settings.Default.pingInterval;
             settingsDialog.textBoxDownloadFile.Text = Properties.Settings.Default.downloadFile;
             settingsDialog.trackBarDownloadSpeed.Value = Properties.Settings.Default.downloadSpeed;
+            settingsDialog.checkBoxMinimized.Checked = Properties.Settings.Default.startMinimized;
 
             settingsDialog.FormClosed += delegate (object sender, FormClosedEventArgs e)
             {
@@ -276,6 +279,7 @@ namespace LTEGamer
                 Properties.Settings.Default.pingInterval = pingInterval;
                 Properties.Settings.Default.downloadFile = downloadFile;
                 Properties.Settings.Default.downloadSpeed = downloadSpeed;
+                Properties.Settings.Default.startMinimized = settingsDialog.checkBoxMinimized.Checked;
                 Properties.Settings.Default.Save();
 
                 pingFlooder.Interval = pingInterval;
@@ -437,5 +441,7 @@ namespace LTEGamer
             this.Show();
             this.WindowState = FormWindowState.Normal;
         }
+
+    
     }
 }

@@ -187,7 +187,7 @@
             // 
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer.Location = new System.Drawing.Point(0, 55);
-            this.splitContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer.Name = "splitContainer";
             this.splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -212,7 +212,7 @@
             this.listViewApps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewApps.FullRowSelect = true;
             this.listViewApps.Location = new System.Drawing.Point(0, 0);
-            this.listViewApps.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewApps.Margin = new System.Windows.Forms.Padding(4);
             this.listViewApps.Name = "listViewApps";
             this.listViewApps.Size = new System.Drawing.Size(677, 200);
             this.listViewApps.TabIndex = 0;
@@ -240,7 +240,7 @@
             this.richTextBoxLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBoxLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxLog.Location = new System.Drawing.Point(0, 0);
-            this.richTextBoxLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBoxLog.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBoxLog.Name = "richTextBoxLog";
             this.richTextBoxLog.ReadOnly = true;
             this.richTextBoxLog.Size = new System.Drawing.Size(677, 85);
@@ -263,7 +263,7 @@
             this.Controls.Add(this.statusStripMenu);
             this.Controls.Add(this.toolStripMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.Text = "LTE-Gamer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);

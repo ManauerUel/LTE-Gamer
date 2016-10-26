@@ -17,7 +17,7 @@ namespace LTEGamer
     {
 
         private static readonly int VALIDATE_PING_TIMEOUT = 1000;
-        private static readonly int VALIDATE_HTTP_TIMEOUT = 2000;
+        private static readonly int VALIDATE_HTTP_TIMEOUT = 1000;
 
         public FormSettings()
         {

@@ -20,5 +20,8 @@
     <Setting Name="activeWorkaround" Type="System.String" Scope="User">
       <Value Profile="(Default)">pingflooder</Value>
     </Setting>
+    <Setting Name="startMinimized" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
