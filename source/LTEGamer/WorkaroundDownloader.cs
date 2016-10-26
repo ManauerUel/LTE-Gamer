@@ -115,7 +115,6 @@ namespace LTEGamer
 
                         TimeSpan elapsed = DateTime.Now - start;
                         int waitingTime = LOADING_INTERVAL - (int)elapsed.TotalMilliseconds;
-
                         Thread.Sleep(waitingTime > 0 ? waitingTime : 0);
 
                     }

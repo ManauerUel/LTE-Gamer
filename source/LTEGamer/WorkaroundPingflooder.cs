@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 
@@ -21,18 +22,11 @@ namespace LTEGamer
         public WorkaroundStatusHandler StatusHandler { get; set; }
         public bool Running
         {
-            get { return sendTimer.Enabled; }
+            get { return processRun; }
         }
-        private int interval;
-        public int Interval
-        {
-            get { return interval; }
-            set
-            {
-                interval = value;
-                sendTimer.Interval = value;
-            }
-        }
+
+        public int Interval { get; set; }
+
         private String destination;
         public String Destination
         {
@@ -41,15 +35,15 @@ namespace LTEGamer
         }
         
 
-        private Timer sendTimer = new Timer();
-        private Timer statusInformer = new Timer();
+        private System.Timers.Timer statusInformer = new System.Timers.Timer();
         private Int32 sentPackages = 0;
+        private volatile bool processRun;
+        private Thread sendThread;
 
         public WorkaroundPingflooder(String destination, int interval)
         {
             this.destination = destination;
-            sendTimer.Interval = interval;
-            sendTimer.Elapsed += new ElapsedEventHandler(timer_executeSinglePing);
+            this.Interval = interval;
 
             statusInformer.Interval = STATUSINFORMER_TIMING;
             statusInformer.Elapsed += new ElapsedEventHandler(timer_handleStatus);
@@ -59,31 +53,45 @@ namespace LTEGamer
 
         public void start()
         {
-            sendTimer.Start();
+            processRun = true;
+            sendThread = new Thread(threaded_pingFlood);
+            sendThread.Start();
             statusInformer.Start();
         }
 
         public void stop()
         {
-            sendTimer.Stop();
+            processRun = false;
             statusInformer.Stop();
         }
 
         public void restart()
         {
-            if (sendTimer.Enabled) {
+            if (processRun)
+            {
                 stop();
+                sendThread.Join();
                 start();
             }
         }
 
 
-        private void timer_executeSinglePing(object sender, ElapsedEventArgs e)
+        
+        private void threaded_pingFlood()
         {
-            Ping pinger = new Ping(); // a new object should not be needed, but one object can't send more than 1 ping per time
-            pinger.Send(destination, PING_TIMEOUT, PING_PACKET);
-            lock(this)
-                sentPackages++;
+            while (processRun) {
+                DateTime start = DateTime.Now;
+
+                // a new object should not be needed, but one object can't send more than 1 ping per time
+                Ping pinger = new Ping();
+                pinger.SendAsync(destination, PING_TIMEOUT, PING_PACKET);
+                lock (this)
+                    sentPackages++;
+
+                TimeSpan elapsed = DateTime.Now - start;
+                int waitingTime = Interval - (int)elapsed.TotalMilliseconds;
+                Thread.Sleep(waitingTime > 0 ? waitingTime : 0);
+            }
         }
 
         private void timer_handleStatus(object sender, ElapsedEventArgs e)
