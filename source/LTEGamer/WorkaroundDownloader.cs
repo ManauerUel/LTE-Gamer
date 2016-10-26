@@ -13,7 +13,7 @@ namespace LTEGamer
     class WorkaroundDownloader : IWorkaround
     {
 
-        private readonly int LOADING_INTERVAL = 200; //ms
+        private readonly int LOADING_INTERVAL = 1000; //ms
         private static readonly int STATUSINFORMER_TIMING = 1000;
 
 
@@ -93,9 +93,9 @@ namespace LTEGamer
         {
 
             //DEBUG OUTPUT
-            Console.WriteLine("PER SECOND: " + bytesPerSecond + " bytes || " + bytesPerSecond/1024 + " kbytes || " + bytesPerSecond/1024.0/1024 + "mbytes");
-            Console.WriteLine("Download every ms: " + LOADING_INTERVAL);
-            Console.WriteLine("BUFFER LENGTH: " + bytesPerSecond / (1000 / LOADING_INTERVAL)+" bytes || " + bytesPerSecond / (1000 / LOADING_INTERVAL) / 1024 + " kbytes || " + bytesPerSecond / (1000 / LOADING_INTERVAL) / 1024.0/1024 + " mbytes");
+            //Console.WriteLine("PER SECOND: " + bytesPerSecond + " bytes || " + bytesPerSecond/1024 + " kbytes || " + bytesPerSecond/1024.0/1024 + "mbytes");
+            //Console.WriteLine("Download every ms: " + LOADING_INTERVAL);
+            //Console.WriteLine("BUFFER LENGTH: " + bytesPerSecond / (1000 / LOADING_INTERVAL)+" bytes || " + bytesPerSecond / (1000 / LOADING_INTERVAL) / 1024 + " kbytes || " + bytesPerSecond / (1000 / LOADING_INTERVAL) / 1024.0/1024 + " mbytes");
 
             while (processRun) //start file-download
             {
@@ -114,14 +114,16 @@ namespace LTEGamer
                         DateTime start = DateTime.Now;
 
                         //Stream.Null.Write(buffer, 0, size); //writing the bytes to null
-                        receivedBytes += size;
+                        lock(this)
+                            receivedBytes += size;
+
                         size = input.Read(buffer, 0, buffer.Length);
 
                         TimeSpan elapsed = DateTime.Now - start;
                         int waitingTime = LOADING_INTERVAL - (int)elapsed.TotalMilliseconds;
                         Thread.Sleep(waitingTime > 0 ? waitingTime : 0);
 
-                        Console.WriteLine(size + " bytes read");
+                        //Console.WriteLine(size + " bytes read");
                     }
                 }
             }
@@ -130,9 +132,14 @@ namespace LTEGamer
 
         private void timer_handleStatus(object sender, System.Timers.ElapsedEventArgs e)
         {
-            double currentBandwith = receivedBytes / 1024.0 * 8.0 / 1024.0;
+            double currentBandwith;
+            lock (this)
+            {
+                currentBandwith = receivedBytes / 1024.0 * 8.0 / 1024.0;
+                receivedBytes = 0;
+            }
             StatusHandler.Invoke("Download mit " + Math.Round(currentBandwith,2) + " Mbit/s");
-            receivedBytes = 0;
+            
         }
 
 

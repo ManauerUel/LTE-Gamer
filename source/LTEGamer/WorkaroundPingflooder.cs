@@ -43,7 +43,7 @@ namespace LTEGamer
 
         private Timer sendTimer = new Timer();
         private Timer statusInformer = new Timer();
-        private int sentPackages = 0;
+        private Int32 sentPackages = 0;
 
         public WorkaroundPingflooder(String destination, int interval)
         {
@@ -82,13 +82,20 @@ namespace LTEGamer
         {
             Ping pinger = new Ping(); // a new object should not be needed, but one object can't send more than 1 ping per time
             pinger.Send(destination, PING_TIMEOUT, PING_PACKET);
-            sentPackages++;
+            lock(this)
+                sentPackages++;
         }
 
         private void timer_handleStatus(object sender, ElapsedEventArgs e)
         {
-            StatusHandler.Invoke("Pinge " +sentPackages + " Pakete/s");
-            sentPackages = 0;
+            int temp;
+            lock (this)
+            {
+                temp = sentPackages;
+                sentPackages = 0;
+            }
+            StatusHandler.Invoke("Pinge " + temp + " Pakete/s");
+
         }
 
     }

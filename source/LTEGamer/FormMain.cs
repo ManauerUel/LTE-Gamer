@@ -17,6 +17,7 @@ namespace LTEGamer
     public partial class FormMain : Form
     {
         private MessageHandler MessageHandler { get; set; }
+        
 
         private List<App> appList = new List<App>();
         private ProcessFinder processChecker;
@@ -67,6 +68,7 @@ namespace LTEGamer
             refreshProcessChecker();
 
             MessageHandler.Invoke("Programm fertig geladen.", MessageType.STATUS);
+
         }
 
 
@@ -383,9 +385,20 @@ namespace LTEGamer
 
         private void setStatusLabel(String message, MessageType type)
         {
+            // SAME HACK AS ABOVE - THIS SHOULD BE REMOVED!
             if(type == MessageType.STATUS)
             {
-                toolStripStatusLabel.Text = message;
+                if (statusStripMenu.IsHandleCreated)
+                {
+                    statusStripMenu.Invoke(new Action(() =>
+                    {
+                        toolStripStatusLabel.Text = message;
+                    }));
+                }
+                else
+                {
+                    toolStripStatusLabel.Text = message;
+                }
             }
         }
 
@@ -399,7 +412,7 @@ namespace LTEGamer
             {
                 dialogToShow.Location = new Point(i, this.Location.Y);
                 dialogToShow.Refresh();
-                Thread.Sleep(3);
+                Thread.Sleep(2);
             }
             dialogToShow.Visible = false;
             dialogToShow.ShowDialog(this);
@@ -409,6 +422,20 @@ namespace LTEGamer
         {
             activeWorkaround.stop();
             processChecker.stop();
+        }
+
+        private void FormMain_Resize(object sender, EventArgs e)
+        {
+            if (FormWindowState.Minimized == this.WindowState)
+            {
+                this.Hide();
+            }
+        }
+
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
         }
     }
 }

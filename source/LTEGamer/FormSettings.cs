@@ -17,6 +17,7 @@ namespace LTEGamer
     {
 
         private static readonly int VALIDATE_PING_TIMEOUT = 1000;
+        private static readonly int VALIDATE_HTTP_TIMEOUT = 2000;
 
         public FormSettings()
         {
@@ -36,17 +37,20 @@ namespace LTEGamer
 
         private void textBoxPingAddress_Validating(object sender, CancelEventArgs e)
         {
-            validatePingAddress();
+            //validatePingAddress();
         }
 
         private void textBoxDownloadFile_Validating(object sender, CancelEventArgs e)
         {
-            validateDownloadFile();
+            //validateDownloadFile();
         }
 
 
         private void FormSettings_FormClosing(object sender, FormClosingEventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
+            Plexiglass plexiglass = new Plexiglass(this);
+
             bool downloadFileValid = validateDownloadFile();
             bool pingAddressValid = validatePingAddress();
 
@@ -54,6 +58,9 @@ namespace LTEGamer
             {
                 e.Cancel = true;
             }
+
+            plexiglass.Close();
+            this.Cursor = Cursors.Default;
         }
 
 
@@ -89,7 +96,9 @@ namespace LTEGamer
             try
             {
                 HttpWebRequest request = WebRequest.Create(textBoxDownloadFile.Text) as HttpWebRequest;
-                request.Method = "HEAD";
+                request.Timeout = VALIDATE_HTTP_TIMEOUT;
+                request.Credentials = CredentialCache.DefaultCredentials;
+                request.Method = WebRequestMethods.Http.Get;
 
                 HttpWebResponse response = request.GetResponse() as HttpWebResponse;
                 response.Close();
@@ -107,6 +116,17 @@ namespace LTEGamer
             return false;
         }
 
-        
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (Form.ModifierKeys == Keys.None && (keyData == Keys.Escape) || keyData == Keys.Enter)
+            {
+                this.Close();
+                return true;
+            }
+
+            return base.ProcessDialogKey(keyData);
+        }
+
+
     }
 }

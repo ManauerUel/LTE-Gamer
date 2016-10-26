@@ -64,6 +64,9 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="EventHandlers.cs" />
+    <Compile Include="Plexiglass.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="WorkaroundDownloader.cs" />
     <Compile Include="FormAbout.cs">
       <SubType>Form</SubType>

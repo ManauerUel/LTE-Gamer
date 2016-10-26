@@ -72,10 +72,8 @@ namespace LTEGamer
                                 CommandLine = (string)mo["CommandLine"],
                             };
 
-
-
                 ProcessStatus newStatus = query.Count() > 0 ? ProcessStatus.PROCESS_FOUND : ProcessStatus.NO_PROCESS_FOUND;
-                if(lastStatus != newStatus)
+                if (lastStatus != newStatus)
                 {
                     lastStatus = newStatus;
                     ChangedStatusHandler.Invoke(newStatus);

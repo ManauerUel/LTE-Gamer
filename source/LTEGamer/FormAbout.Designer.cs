@@ -43,9 +43,10 @@
             this.linkLabelLocation.AutoSize = true;
             this.linkLabelLocation.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabelLocation.LinkColor = System.Drawing.Color.Black;
-            this.linkLabelLocation.Location = new System.Drawing.Point(82, 47);
+            this.linkLabelLocation.Location = new System.Drawing.Point(109, 58);
+            this.linkLabelLocation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabelLocation.Name = "linkLabelLocation";
-            this.linkLabelLocation.Size = new System.Drawing.Size(79, 14);
+            this.linkLabelLocation.Size = new System.Drawing.Size(92, 18);
             this.linkLabelLocation.TabIndex = 6;
             this.linkLabelLocation.TabStop = true;
             this.linkLabelLocation.Text = "@lteforum.at";
@@ -57,9 +58,10 @@
             // 
             this.labelCreator.AutoSize = true;
             this.labelCreator.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCreator.Location = new System.Drawing.Point(81, 28);
+            this.labelCreator.Location = new System.Drawing.Point(108, 35);
+            this.labelCreator.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCreator.Name = "labelCreator";
-            this.labelCreator.Size = new System.Drawing.Size(87, 23);
+            this.labelCreator.Size = new System.Drawing.Size(114, 29);
             this.labelCreator.TabIndex = 5;
             this.labelCreator.Text = "Blaubeere";
             // 
@@ -67,18 +69,20 @@
             // 
             this.labelProgramm.AutoSize = true;
             this.labelProgramm.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProgramm.Location = new System.Drawing.Point(80, 7);
+            this.labelProgramm.Location = new System.Drawing.Point(107, 9);
+            this.labelProgramm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelProgramm.Name = "labelProgramm";
-            this.labelProgramm.Size = new System.Drawing.Size(97, 26);
+            this.labelProgramm.Size = new System.Drawing.Size(133, 33);
             this.labelProgramm.TabIndex = 4;
-            this.labelProgramm.Text = "LTEGamer";
+            this.labelProgramm.Text = "LTE-Gamer";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(62, 68);
+            this.pictureBox1.Size = new System.Drawing.Size(83, 84);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -89,9 +93,10 @@
             this.linkLabelIcons8.AutoSize = true;
             this.linkLabelIcons8.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabelIcons8.LinkColor = System.Drawing.Color.Black;
-            this.linkLabelIcons8.Location = new System.Drawing.Point(82, 66);
+            this.linkLabelIcons8.Location = new System.Drawing.Point(109, 81);
+            this.linkLabelIcons8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabelIcons8.Name = "linkLabelIcons8";
-            this.linkLabelIcons8.Size = new System.Drawing.Size(121, 14);
+            this.linkLabelIcons8.Size = new System.Drawing.Size(138, 18);
             this.linkLabelIcons8.TabIndex = 8;
             this.linkLabelIcons8.TabStop = true;
             this.linkLabelIcons8.Text = "Icons von icons8.com";
@@ -101,9 +106,9 @@
             // 
             // FormAbout
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(215, 90);
+            this.ClientSize = new System.Drawing.Size(287, 111);
             this.Controls.Add(this.linkLabelIcons8);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.linkLabelLocation);
@@ -111,6 +116,7 @@
             this.Controls.Add(this.labelProgramm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormAbout";
             this.Text = "Über LTEGamer";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
