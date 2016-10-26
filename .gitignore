@@ -45,3 +45,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+source/.vs
+source/LTEGamer/bin
+source/LTEGamer/obj
