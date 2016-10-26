@@ -13,7 +13,7 @@ namespace LTEGamer
     class WorkaroundDownloader : IWorkaround
     {
 
-        private readonly int LOADING_INTERVAL = 1000; //ms
+        private readonly int LOADING_INTERVAL = 10; //ms
         private static readonly int STATUSINFORMER_TIMING = 1000;
 
 
@@ -91,12 +91,6 @@ namespace LTEGamer
 
         private void threaded_downloadFile()
         {
-
-            //DEBUG OUTPUT
-            //Console.WriteLine("PER SECOND: " + bytesPerSecond + " bytes || " + bytesPerSecond/1024 + " kbytes || " + bytesPerSecond/1024.0/1024 + "mbytes");
-            //Console.WriteLine("Download every ms: " + LOADING_INTERVAL);
-            //Console.WriteLine("BUFFER LENGTH: " + bytesPerSecond / (1000 / LOADING_INTERVAL)+" bytes || " + bytesPerSecond / (1000 / LOADING_INTERVAL) / 1024 + " kbytes || " + bytesPerSecond / (1000 / LOADING_INTERVAL) / 1024.0/1024 + " mbytes");
-
             while (processRun) //start file-download
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(file);
@@ -121,9 +115,9 @@ namespace LTEGamer
 
                         TimeSpan elapsed = DateTime.Now - start;
                         int waitingTime = LOADING_INTERVAL - (int)elapsed.TotalMilliseconds;
+
                         Thread.Sleep(waitingTime > 0 ? waitingTime : 0);
 
-                        //Console.WriteLine(size + " bytes read");
                     }
                 }
             }
@@ -138,7 +132,8 @@ namespace LTEGamer
                 currentBandwith = receivedBytes / 1024.0 * 8.0 / 1024.0;
                 receivedBytes = 0;
             }
-            StatusHandler.Invoke("Download mit " + Math.Round(currentBandwith,2) + " Mbit/s");
+
+            StatusHandler.Invoke("Download mit " + String.Format("{0:#0.00}", currentBandwith) + " Mbit/s");
             
         }
 
