@@ -16,6 +16,7 @@ namespace LTEGamer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            new FormMain();
             Application.Run();
         }
     }
