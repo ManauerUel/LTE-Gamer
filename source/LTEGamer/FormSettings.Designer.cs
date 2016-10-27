@@ -45,8 +45,8 @@
             this.errorProviderPingAddress = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDownloadFile = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBoxGeneral = new System.Windows.Forms.GroupBox();
-            this.labelStart = new System.Windows.Forms.Label();
             this.checkBoxMinimized = new System.Windows.Forms.CheckBox();
+            this.labelStart = new System.Windows.Forms.Label();
             this.groupBoxPingWorkaround.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPingInterval)).BeginInit();
             this.groupBoxDownloadWorkaround.SuspendLayout();
@@ -64,9 +64,9 @@
             this.groupBoxPingWorkaround.Controls.Add(this.trackBarPingInterval);
             this.groupBoxPingWorkaround.Controls.Add(this.labelPingAddress);
             this.groupBoxPingWorkaround.Location = new System.Drawing.Point(13, 101);
-            this.groupBoxPingWorkaround.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxPingWorkaround.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxPingWorkaround.Name = "groupBoxPingWorkaround";
-            this.groupBoxPingWorkaround.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxPingWorkaround.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxPingWorkaround.Size = new System.Drawing.Size(336, 137);
             this.groupBoxPingWorkaround.TabIndex = 0;
             this.groupBoxPingWorkaround.TabStop = false;
@@ -95,7 +95,7 @@
             // textBoxPingAddress
             // 
             this.textBoxPingAddress.Location = new System.Drawing.Point(111, 32);
-            this.textBoxPingAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPingAddress.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPingAddress.Name = "textBoxPingAddress";
             this.textBoxPingAddress.Size = new System.Drawing.Size(184, 22);
             this.textBoxPingAddress.TabIndex = 1;
@@ -105,7 +105,7 @@
             // 
             this.trackBarPingInterval.LargeChange = 20;
             this.trackBarPingInterval.Location = new System.Drawing.Point(101, 64);
-            this.trackBarPingInterval.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarPingInterval.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarPingInterval.Maximum = 200;
             this.trackBarPingInterval.Minimum = 50;
             this.trackBarPingInterval.Name = "trackBarPingInterval";
@@ -135,9 +135,9 @@
             this.groupBoxDownloadWorkaround.Controls.Add(this.trackBarDownloadSpeed);
             this.groupBoxDownloadWorkaround.Controls.Add(this.labelDownloadFile);
             this.groupBoxDownloadWorkaround.Location = new System.Drawing.Point(13, 245);
-            this.groupBoxDownloadWorkaround.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxDownloadWorkaround.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxDownloadWorkaround.Name = "groupBoxDownloadWorkaround";
-            this.groupBoxDownloadWorkaround.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxDownloadWorkaround.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxDownloadWorkaround.Size = new System.Drawing.Size(336, 142);
             this.groupBoxDownloadWorkaround.TabIndex = 1;
             this.groupBoxDownloadWorkaround.TabStop = false;
@@ -166,7 +166,7 @@
             // textBoxDownloadFile
             // 
             this.textBoxDownloadFile.Location = new System.Drawing.Point(111, 34);
-            this.textBoxDownloadFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxDownloadFile.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDownloadFile.Name = "textBoxDownloadFile";
             this.textBoxDownloadFile.Size = new System.Drawing.Size(184, 22);
             this.textBoxDownloadFile.TabIndex = 3;
@@ -175,7 +175,7 @@
             // trackBarDownloadSpeed
             // 
             this.trackBarDownloadSpeed.Location = new System.Drawing.Point(101, 66);
-            this.trackBarDownloadSpeed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarDownloadSpeed.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarDownloadSpeed.Maximum = 50;
             this.trackBarDownloadSpeed.Minimum = 1;
             this.trackBarDownloadSpeed.Name = "trackBarDownloadSpeed";
@@ -219,16 +219,6 @@
             this.groupBoxGeneral.TabStop = false;
             this.groupBoxGeneral.Text = "Allgemein";
             // 
-            // labelStart
-            // 
-            this.labelStart.AutoSize = true;
-            this.labelStart.Location = new System.Drawing.Point(21, 36);
-            this.labelStart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelStart.Name = "labelStart";
-            this.labelStart.Size = new System.Drawing.Size(42, 17);
-            this.labelStart.TabIndex = 0;
-            this.labelStart.Text = "Start:";
-            // 
             // checkBoxMinimized
             // 
             this.checkBoxMinimized.AutoSize = true;
@@ -239,6 +229,16 @@
             this.checkBoxMinimized.Text = "Starte Programm minimiert";
             this.checkBoxMinimized.UseVisualStyleBackColor = true;
             // 
+            // labelStart
+            // 
+            this.labelStart.AutoSize = true;
+            this.labelStart.Location = new System.Drawing.Point(21, 36);
+            this.labelStart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelStart.Name = "labelStart";
+            this.labelStart.Size = new System.Drawing.Size(42, 17);
+            this.labelStart.TabIndex = 0;
+            this.labelStart.Text = "Start:";
+            // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -248,7 +248,7 @@
             this.Controls.Add(this.groupBoxDownloadWorkaround);
             this.Controls.Add(this.groupBoxPingWorkaround);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormSettings";
             this.Text = "Einstellungen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSettings_FormClosing);

@@ -48,19 +48,37 @@ namespace LTEGamer
 
         private void FormSettings_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Plexiglass plexiGlass = new Plexiglass(this);
             this.Cursor = Cursors.WaitCursor;
-            Plexiglass plexiglass = new Plexiglass(this);
 
-            bool downloadFileValid = validateDownloadFile();
-            bool pingAddressValid = validatePingAddress();
+            Console.WriteLine(sender);
 
-            if(!downloadFileValid || !pingAddressValid)
-            {
-                e.Cancel = true;
-            }
+            var cleanupTask = Task.Run(
+                delegate()
+                {
+                    bool downloadFileValid = validateDownloadFile();
+                    bool pingAddressValid = validatePingAddress();
 
-            plexiglass.Close();
-            this.Cursor = Cursors.Default;
+                    if (downloadFileValid && pingAddressValid)
+                    {
+                        Invoke(new Action(() =>
+                        {
+                            this.FormClosing -= FormSettings_FormClosing;
+                            this.Close();
+                        }));
+                    }
+                    else
+                    {
+                        Invoke(new Action(() =>
+                        {
+                            plexiGlass.Close();
+                            this.Cursor = Cursors.Default;
+                        }));
+                }
+                });
+
+            e.Cancel = true;
+            
         }
 
 
@@ -71,7 +89,9 @@ namespace LTEGamer
                 Ping ping = new Ping();
                 if (ping.Send(textBoxPingAddress.Text, VALIDATE_PING_TIMEOUT).Status == IPStatus.Success)
                 {
-                    errorProviderPingAddress.Clear();
+                    Invoke(new Action(() => { 
+                        errorProviderPingAddress.Clear();
+                    }));
                     return true;
                 }
             }
@@ -79,7 +99,11 @@ namespace LTEGamer
             {
             }
 
-            errorProviderPingAddress.SetError(textBoxPingAddress, "URL/IP ist nicht gültig!");
+            Invoke(new Action(() =>
+            {
+                errorProviderPingAddress.SetError(textBoxPingAddress, "URL/IP ist nicht gültig!");
+            }));
+
             return false;
         }
 
@@ -104,7 +128,10 @@ namespace LTEGamer
                 response.Close();
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    errorProviderDownloadFile.Clear();
+                    Invoke(new Action(() =>
+                    {
+                        errorProviderDownloadFile.Clear();
+                    }));
                     return true;
                 }
             }
@@ -112,7 +139,11 @@ namespace LTEGamer
             {
             }
 
-            errorProviderDownloadFile.SetError(textBoxDownloadFile, "Datei ist nicht gültig!");
+            Invoke(new Action(() =>
+            {
+                errorProviderDownloadFile.SetError(textBoxDownloadFile, "Datei ist nicht gültig!");
+            }));
+
             return false;
         }
 
@@ -126,7 +157,6 @@ namespace LTEGamer
 
             return base.ProcessDialogKey(keyData);
         }
-
 
     }
 }

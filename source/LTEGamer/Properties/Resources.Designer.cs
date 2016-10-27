@@ -83,29 +83,9 @@ namespace LTEGamer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap IconConnect {
-            get {
-                object obj = ResourceManager.GetObject("IconConnect", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap IconDelete {
             get {
                 object obj = ResourceManager.GetObject("IconDelete", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap IconDisconnect {
-            get {
-                object obj = ResourceManager.GetObject("IconDisconnect", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +106,16 @@ namespace LTEGamer.Properties {
         internal static System.Drawing.Bitmap IconGame {
             get {
                 object obj = ResourceManager.GetObject("IconGame", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconLoading {
+            get {
+                object obj = ResourceManager.GetObject("IconLoading", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -124,19 +124,16 @@
   <data name="IconAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Add File-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IconConnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Connected-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="IconDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Delete File-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IconDisconnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Disconnected-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IconEdit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit File-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IconGame" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Controller-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconLoading" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconLoading.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

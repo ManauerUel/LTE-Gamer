@@ -67,10 +67,16 @@ namespace LTEGamer
             refreshAppList();
             refreshProcessChecker();
 
-            if (Properties.Settings.Default.startMinimized) Visible = false;
+            if (Properties.Settings.Default.startMinimized)
+            {
+                Visible = false;
+            }
+            else
+            {
+                Visible = true;
+            }
 
-            MessageHandler.Invoke("Bereit.", MessageType.STATUS);
-
+            MessageHandler.Invoke("Bereit.", MessageType.STATUS);            
         }
 
 
@@ -416,7 +422,7 @@ namespace LTEGamer
             {
                 dialogToShow.Location = new Point(i, this.Location.Y);
                 dialogToShow.Refresh();
-                Thread.Sleep(2);
+                Thread.Sleep(1);
             }
             dialogToShow.Visible = false;
             dialogToShow.ShowDialog(this);

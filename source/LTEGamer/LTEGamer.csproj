@@ -64,7 +64,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="EventHandlers.cs" />
-    <Compile Include="Plexiglass.cs">
+    <Compile Include="PlexiGlass.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WorkaroundDownloader.cs" />
@@ -167,6 +167,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Synchronize-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconSync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconLoading.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
