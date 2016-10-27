@@ -432,6 +432,7 @@ namespace LTEGamer
         {
             activeWorkaround.stop();
             processChecker.stop();
+            Application.Exit(); // a thread is always still running, dunno which one
         }
 
         private void FormMain_Resize(object sender, EventArgs e)
