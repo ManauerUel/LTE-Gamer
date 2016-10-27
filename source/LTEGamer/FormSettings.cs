@@ -17,7 +17,7 @@ namespace LTEGamer
     {
 
         private static readonly int VALIDATE_PING_TIMEOUT = 1000;
-        private static readonly int VALIDATE_HTTP_TIMEOUT = 1000;
+        private static readonly int VALIDATE_HTTP_TIMEOUT = 1500;
 
         public FormSettings()
         {
@@ -48,7 +48,7 @@ namespace LTEGamer
 
         private void FormSettings_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Plexiglass plexiGlass = new Plexiglass(this);
+            OverlayForm plexiGlass = new OverlayForm(this);
             this.Cursor = Cursors.WaitCursor;
 
             Console.WriteLine(sender);

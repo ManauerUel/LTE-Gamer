@@ -65,7 +65,7 @@ namespace LTEGamer
 
             loadAppList();
             refreshAppList();
-            refreshProcessChecker();
+            
 
             if (Properties.Settings.Default.startMinimized)
             {
@@ -213,7 +213,6 @@ namespace LTEGamer
 
                     refreshAppList();
                     saveAppList();
-                    refreshProcessChecker();
 
                     MessageHandler.Invoke(name + " hinzugefügt ...", MessageType.MESSAGE);
                 }
@@ -241,7 +240,6 @@ namespace LTEGamer
 
                     refreshAppList();
                     saveAppList();
-                    refreshProcessChecker();
 
                     MessageHandler.Invoke(app.Name + " editiert ...", MessageType.MESSAGE);
                 };
@@ -249,7 +247,6 @@ namespace LTEGamer
                 showSmoothDialog(newAppDialog);
             }
             refreshAppList();
-            refreshProcessChecker();
         }
 
         private void removeApp()
@@ -262,7 +259,6 @@ namespace LTEGamer
             }
             refreshAppList();
             saveAppList();
-            refreshProcessChecker();
         }
 
         private void showSettings()
@@ -324,6 +320,7 @@ namespace LTEGamer
 
             listViewApps.SmallImageList = imageList;
             refreshButtons();
+            refreshProcessChecker();
         }
 
         private void refreshProcessChecker()
@@ -362,24 +359,7 @@ namespace LTEGamer
             if (type == MessageType.STATUS) return;
 
             String textToAppend = DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss") + " | " + message;
-
-            // HIGHLY DIRTY HACK, TO DO LOG-MESSAGES FROM OTHER THREADS
-            if (richTextBoxLog.IsHandleCreated)
-            {
-                richTextBoxLog.Invoke(new Action(() =>
-                {
-                    if (richTextBoxLog.Text != "") richTextBoxLog.AppendText(Environment.NewLine);
-                    richTextBoxLog.AppendText(textToAppend);
-                    richTextBoxLog.ScrollToCaret();
-
-                    if (type == MessageType.ERROR)
-                    {
-                        richTextBoxLog.Find(textToAppend);
-                        richTextBoxLog.SelectionColor = Color.DarkRed;
-                    }
-                }));
-            }
-            else
+            Action writeToTextbox = new Action(() =>
             {
                 if (richTextBoxLog.Text != "") richTextBoxLog.AppendText(Environment.NewLine);
                 richTextBoxLog.AppendText(textToAppend);
@@ -390,6 +370,16 @@ namespace LTEGamer
                     richTextBoxLog.Find(textToAppend);
                     richTextBoxLog.SelectionColor = Color.DarkRed;
                 }
+            });
+
+            // HIGHLY DIRTY HACK, TO DO LOG-MESSAGES FROM OTHER THREADS
+            if (richTextBoxLog.IsHandleCreated)
+            {
+                richTextBoxLog.Invoke(writeToTextbox);
+            }
+            else
+            {
+                writeToTextbox.Invoke();
             }
         }
 
@@ -414,7 +404,6 @@ namespace LTEGamer
 
         private void showSmoothDialog(Form dialogToShow)
         {
-            // Doing a little smooth Wiggle Wiggle
             dialogToShow.StartPosition = FormStartPosition.Manual;
             dialogToShow.Visible = true;
             int currX = this.Location.X + this.Width - dialogToShow.Width / 3;
@@ -432,7 +421,7 @@ namespace LTEGamer
         {
             activeWorkaround.stop();
             processChecker.stop();
-            Application.Exit(); // a thread is always still running, dunno which one
+            //Application.Exit(); // a thread is always still running, dunno which one
         }
 
         private void FormMain_Resize(object sender, EventArgs e)

@@ -11,15 +11,14 @@ namespace LTEGamer
     using System.Windows.Forms;
     using System.Runtime.InteropServices;
 
-    class Plexiglass : Form
+    class OverlayForm : Form
     {
 
-        Form tocover;
-        public Plexiglass(Form tocover)
+        private Form formToCover;
+
+        public OverlayForm(Form tocover)
         {
-            this.tocover = tocover;
-            //this.BackColor = Color.DarkGray;
-            //this.Opacity = 0.30;      // Tweak as desired
+            this.formToCover = tocover;
             this.FormBorderStyle = FormBorderStyle.None;
             this.ControlBox = false;
             this.ShowInTaskbar = false;
@@ -79,13 +78,13 @@ namespace LTEGamer
             Graphics g = e.Graphics;
 
 
-            Bitmap backPanel = new Bitmap(tocover.Width, tocover.Height);
-            tocover.DrawToBitmap(backPanel, new Rectangle(0, 0, tocover.Width, tocover.Height));
-            Point p = tocover.PointToScreen(Point.Empty);
-            Bitmap target = new Bitmap(tocover.ClientSize.Width, tocover.ClientSize.Height);
+            Bitmap backPanel = new Bitmap(formToCover.Width, formToCover.Height);
+            formToCover.DrawToBitmap(backPanel, new Rectangle(0, 0, formToCover.Width, formToCover.Height));
+            Point p = formToCover.PointToScreen(Point.Empty);
+            Bitmap target = new Bitmap(formToCover.ClientSize.Width, formToCover.ClientSize.Height);
             using (Graphics ge = Graphics.FromImage(target))
             {
-                ge.DrawImage(backPanel, 0, 0, new Rectangle(p.X - tocover.Location.X, p.Y - tocover.Location.Y,target.Width, target.Height),GraphicsUnit.Pixel);
+                ge.DrawImage(backPanel, 0, 0, new Rectangle(p.X - formToCover.Location.X, p.Y - formToCover.Location.Y,target.Width, target.Height),GraphicsUnit.Pixel);
             }
             backPanel.Dispose();
             g.DrawImage(target, 0, 0);
