@@ -20,7 +20,9 @@ namespace LTEGamer
         public WorkaroundStatusHandler StatusHandler { get; set; }
         public bool Running
         {
-            get { return downloadThread.IsAlive; }
+            get {
+                return downloadThread != null? downloadThread.IsAlive : false;
+            }
         }
 
         private int bytesPerSecond;
