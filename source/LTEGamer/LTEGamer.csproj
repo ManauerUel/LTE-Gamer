@@ -47,6 +47,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Controller-48.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -142,16 +145,10 @@
     <None Include="Resources\Add File-48.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Connected-48.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Controller-48.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Delete File-48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Disconnected-48.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Edit File-48.png" />
@@ -169,13 +166,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Synchronize-48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\IconSync.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\IconLoading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Cancel-48.ico" />
+    <Content Include="Resources\Cancel-48.png" />
+    <Content Include="Resources\Controller-48.ico" />
+    <Content Include="Resources\Downloads-48.png" />
+    <Content Include="Resources\Ping Pong-48.png" />
+    <Content Include="Resources\Settings-48.png" />
+    <Content Include="Resources\SIM Card-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

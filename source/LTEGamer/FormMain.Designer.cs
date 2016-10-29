@@ -73,7 +73,7 @@
             this.toolStripButtonAbout});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(677, 55);
+            this.toolStripMenu.Size = new System.Drawing.Size(508, 55);
             this.toolStripMenu.TabIndex = 0;
             // 
             // toolStripButtonAddGame
@@ -170,24 +170,22 @@
             this.statusStripMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStripMenu.Location = new System.Drawing.Point(0, 345);
+            this.statusStripMenu.Location = new System.Drawing.Point(0, 279);
             this.statusStripMenu.Name = "statusStripMenu";
-            this.statusStripMenu.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStripMenu.Size = new System.Drawing.Size(677, 25);
+            this.statusStripMenu.Size = new System.Drawing.Size(508, 22);
             this.statusStripMenu.TabIndex = 1;
             this.statusStripMenu.Text = "statusStrip1";
             // 
             // toolStripStatusLabel
             // 
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(172, 20);
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(139, 17);
             this.toolStripStatusLabel.Text = "Kein Workaround aktiv ...";
             // 
             // splitContainer
             // 
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer.Location = new System.Drawing.Point(0, 55);
-            this.splitContainer.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer.Name = "splitContainer";
             this.splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -198,9 +196,8 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.richTextBoxLog);
-            this.splitContainer.Size = new System.Drawing.Size(677, 290);
-            this.splitContainer.SplitterDistance = 200;
-            this.splitContainer.SplitterWidth = 5;
+            this.splitContainer.Size = new System.Drawing.Size(508, 224);
+            this.splitContainer.SplitterDistance = 154;
             this.splitContainer.TabIndex = 2;
             // 
             // listViewApps
@@ -212,9 +209,8 @@
             this.listViewApps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewApps.FullRowSelect = true;
             this.listViewApps.Location = new System.Drawing.Point(0, 0);
-            this.listViewApps.Margin = new System.Windows.Forms.Padding(4);
             this.listViewApps.Name = "listViewApps";
-            this.listViewApps.Size = new System.Drawing.Size(677, 200);
+            this.listViewApps.Size = new System.Drawing.Size(508, 154);
             this.listViewApps.TabIndex = 0;
             this.listViewApps.UseCompatibleStateImageBehavior = false;
             this.listViewApps.View = System.Windows.Forms.View.Details;
@@ -232,7 +228,7 @@
             // 
             // columnHeaderPath
             // 
-            this.columnHeaderPath.Text = "Path";
+            this.columnHeaderPath.Text = "Pfad";
             this.columnHeaderPath.Width = 330;
             // 
             // richTextBoxLog
@@ -240,10 +236,9 @@
             this.richTextBoxLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBoxLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxLog.Location = new System.Drawing.Point(0, 0);
-            this.richTextBoxLog.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBoxLog.Name = "richTextBoxLog";
             this.richTextBoxLog.ReadOnly = true;
-            this.richTextBoxLog.Size = new System.Drawing.Size(677, 85);
+            this.richTextBoxLog.Size = new System.Drawing.Size(508, 66);
             this.richTextBoxLog.TabIndex = 0;
             this.richTextBoxLog.Text = "";
             // 
@@ -256,14 +251,13 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 370);
+            this.ClientSize = new System.Drawing.Size(508, 301);
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.statusStripMenu);
             this.Controls.Add(this.toolStripMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.Text = "LTE-Gamer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
